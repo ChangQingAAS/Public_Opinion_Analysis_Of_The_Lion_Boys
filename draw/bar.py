@@ -1,16 +1,35 @@
-from pyecharts.charts import Bar
+from pyecharts.charts import Bar, Funnel
 from pyecharts import options as opts
+import csv
 
 
-# 用户情感可视化（柱状图）
+# 柱状图
 def emotion_bar(file_name):
-    bar_x_data = ("主题0", "主题1", "主题2", "主题3", "主题4")
-    bar_y_data = (1068, 4227, 412, 2213, 1777)
-    c = (Bar().add_xaxis(bar_x_data).add_yaxis(
-        "回答数量", bar_y_data,
-        color="#af00ff").set_global_opts(title_opts=opts.TitleOpts(
-            title=file_name + "柱状图")).render("draw/" + file_name + "柱状图.html"))
-    print("情感分析柱状图绘制完成")
+    bar_x = []
+    bar_y = []
+    with open('draw/LDA词频.csv', encoding="utf-8") as csvfile:
+        count = 0
+        csv_reader = csv.reader(csvfile)
+        for row in csv_reader:
+            if count:
+                bar_x.append(row[0])
+                bar_y.append(row[1])
+            count += 1
+
+    # c = (Bar().add_xaxis(bar_x).add_yaxis(
+    #     "回答数量", bar_y,
+    #     color="#af00ff").set_global_opts(title_opts=opts.TitleOpts(
+    #         title=file_name + "柱状图")).render("draw/" + file_name + "柱状图.html"))
+    # print("绘制完成")
+
+    bar_x = list(reversed(bar_x))
+    bar_y = list(reversed(bar_y))
+
+    bar = (Bar().add_xaxis(bar_x).add_yaxis(
+        "", bar_y, stack="stack1").reversal_axis().set_global_opts(
+            title_opts=opts.TitleOpts(title="LDA词频")).set_series_opts(
+                label_opts=opts.LabelOpts(is_show=False, position="right")).
+           render("draw/" + file_name + "柱状图.html"))
 
 
-emotion_bar("知乎回答LDA主题")
+emotion_bar("LDA词频")

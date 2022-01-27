@@ -15,13 +15,17 @@
 - 百度贴吧、虎扑
   - 结构复杂，难写
 - 猫眼
-  - 数据量少，不适合写
-  
-## 论文
-https://www.overleaf.com/9212124755qqjbqnkptfhx
+  - 数据量少，不适合
+- 知网
+  - 数据量太少
+
+## 论文地址
+
+https://www.overleaf.com/read/mnqkfkzxbxdx
 
 ## 大数据算法
-由于还有一个大作业需要做，因为有python基础，所以选择了pyspark
-- wordcount（使用jieba做中文词频，然后做词云图
+- wordcount（使用jieba做中文词频，然后做词云图)
 - LDA（主题聚类）
 - TF-IDF（关键词）
+- k-means
+- 线性回归
