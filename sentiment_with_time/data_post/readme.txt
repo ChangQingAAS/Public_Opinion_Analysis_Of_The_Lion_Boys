@@ -2,7 +2,6 @@ insert_rawdata()
 #上传爬虫爬取数据的方法
 #上传数据格式为ds，context，topic，分别为时间、文本、话题，
 #上传的数据格式如该目录下rawdata.csv一样，注意列名称必须是ds,context,topic
-#李哲荀用
 
 insert_emotionval()
 ##上传原始数据经过二次处理后数据和最终预测结果的方法

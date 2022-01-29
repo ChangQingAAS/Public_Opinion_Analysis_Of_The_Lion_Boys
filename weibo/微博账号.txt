@@ -1,6 +1,0 @@
-cls.username = "15586430583"  # 你的微博登录名
-cls.password = "yutao19981119"  # 你的密码
-
-
-username = "16603620013"  # 你的微博登录名
-password = "wn123456789."  # 你的密码
